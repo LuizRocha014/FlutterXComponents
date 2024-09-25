@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:componentes_lr/src/models/infos_table_database.dart';
 import 'package:componentes_lr/src/utils/utils/ibase_repository.dart';
 import 'package:componentes_lr/src/utils/utils/icontext.dart';
+import 'package:componentes_lr/src/utils/utils/utils_exports.dart';
 
 class BaseRepository<T> implements IBaseRepository<T> {
   @override

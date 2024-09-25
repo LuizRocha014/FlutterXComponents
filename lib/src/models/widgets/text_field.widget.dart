@@ -1,6 +1,7 @@
 import 'package:componentes_lr/src/models/widgets/export_widgets.dart';
 import 'package:componentes_lr/src/utils/utils/app_measurements.dart';
 import 'package:componentes_lr/src/utils/utils/colors.dart';
+import 'package:componentes_lr/src/utils/utils/font_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

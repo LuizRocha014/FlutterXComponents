@@ -6,6 +6,7 @@ import 'package:componentes_lr/src/utils/utils/colors.dart';
 import 'package:componentes_lr/src/utils/utils/midia/midia_util.dart';
 import 'package:componentes_lr/src/utils/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class VisualizaFotoPdfWidget extends StatefulWidget {
   final List<MidiaUtil> listArquivo;

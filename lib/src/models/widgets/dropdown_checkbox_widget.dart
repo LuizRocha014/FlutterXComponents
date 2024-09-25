@@ -1,4 +1,5 @@
 import 'package:componentes_lr/src/models/widgets/export_widgets.dart';
+import 'package:componentes_lr/src/utils/utils/app_measurements.dart';
 import 'package:componentes_lr/src/utils/utils/colors.dart';
 import 'package:componentes_lr/src/utils/utils/extension_util.dart';
 import 'package:componentes_lr/src/utils/utils/font_sizes.dart';
