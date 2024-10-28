@@ -97,6 +97,7 @@ class TextFieldWidget extends StatelessWidget {
     this.onTapOutside,
     this.onEditingComplete,
     this.textSize,
+    required String labelInterno,
   });
 
   @override
@@ -122,7 +123,7 @@ class TextFieldWidget extends StatelessWidget {
                         ),
                       ),
                     SizedBox(
-                      width: 85.w,
+                      width: 40.w,
                       child: TextWidget(
                         externalLabel,
                         overflow: TextOverflow.visible,
@@ -132,7 +133,8 @@ class TextFieldWidget extends StatelessWidget {
                         maxLines: maxLinesExternalLabel,
                       ),
                     ),
-                    TextWidget(mandatory ? " *" : null, fontSize: externalLabelFontSize, textColor: Colors.red),
+                    TextWidget(mandatory ? " *" : null,
+                        fontSize: externalLabelFontSize, textColor: Colors.red),
                   ],
                 ),
               ),
@@ -185,8 +187,10 @@ class TextFieldWidget extends StatelessWidget {
                         errorMaxLines: 2,
                         prefixIcon: prefixIcon != null
                             ? prefixIcon is String
-                                ? ImageAsset(prefixIcon as String, height: 2.5.h, width: 2.5.h)
-                                : Icon(prefixIcon as IconData, size: 2.5.h, color: iconColor)
+                                ? ImageAsset(prefixIcon as String,
+                                    height: 2.5.h, width: 2.5.h)
+                                : Icon(prefixIcon as IconData,
+                                    size: 2.5.h, color: iconColor)
                             : null,
                         // prefixIcon == null ? null : ImageAsset(prefixIcon!, height: 2.h, width: 2.w, color: azulPrimario),
                         suffixIcon: suffixIcon != null
@@ -195,9 +199,11 @@ class TextFieldWidget extends StatelessWidget {
                                 child: suffixIcon is String
                                     ? Padding(
                                         padding: EdgeInsets.all(1.5.h),
-                                        child: ImageAsset(suffixIcon as String, height: 2.5.h, width: 2.5.w),
+                                        child: ImageAsset(suffixIcon as String,
+                                            height: 2.5.h, width: 2.5.w),
                                       )
-                                    : Icon(suffixIcon as IconData, size: 2.5.h, color: iconColor),
+                                    : Icon(suffixIcon as IconData,
+                                        size: 2.5.h, color: iconColor),
                               )
                             : null,
                         hintStyle: TextStyle(

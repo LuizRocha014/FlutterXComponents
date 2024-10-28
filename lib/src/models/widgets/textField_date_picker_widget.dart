@@ -33,7 +33,9 @@ class TextFieldDatePickerWidget extends StatelessWidget {
     this.externalLabelFontSize,
   });
 
-  DateTime? get selectedDate => controller.text.isEmpty ? null : fromStringToDateTimePtBr(controller.text, dateTime);
+  DateTime? get selectedDate => controller.text.isEmpty
+      ? null
+      : fromStringToDateTimePtBr(controller.text, dateTime);
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +53,7 @@ class TextFieldDatePickerWidget extends StatelessWidget {
       hintFontSize: hintFontSize,
       externalLabelFontSize: externalLabelFontSize,
       borderRadius: borderRadius,
+      labelInterno: '',
     );
   }
 

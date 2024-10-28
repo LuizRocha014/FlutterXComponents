@@ -2,11 +2,17 @@ import 'package:intl/intl.dart';
 
 double formattedValueRealToDouble(String valor) {
   if (!valor.startsWith("R\$")) return 0;
-  return double.tryParse(valor.replaceFirst("R\$", "").replaceAll(".", "").replaceAll(",", ".").trim()) ?? 0;
+  return double.tryParse(valor
+          .replaceFirst("R\$", "")
+          .replaceAll(".", "")
+          .replaceAll(",", ".")
+          .trim()) ??
+      0;
 }
 
 String doubleToFormattedReal(double valor) {
-  return NumberFormat.currency(name: 'R\$ ', locale: 'pt_BR', decimalDigits: 2).format(valor);
+  return NumberFormat.currency(name: 'R\$ ', locale: 'pt_BR', decimalDigits: 2)
+      .format(valor);
 }
 
 String dateTimeBrazilianStandard(DateTime data) {
@@ -38,11 +44,13 @@ String timeDifferenceUntilNow(DateTime date) {
 }
 
 String fromDateTimeToStringPtBr(DateTime data, bool showHours) =>
-    (showHours ? DateFormat('dd/MM/yyyy HH:mm') : DateFormat('dd/MM/yyyy')).format(data);
+    (showHours ? DateFormat('dd/MM/yyyy HH:mm') : DateFormat('dd/MM/yyyy'))
+        .format(data);
 DateTime fromStringToDateTimePtBr(String data, bool showHours) {
   final separadoPorEspaco = data.split(" ");
   final temHoras = separadoPorEspaco.length > 1;
-  final dataSplit = temHoras ? separadoPorEspaco[0].split("/") : data.split("/");
+  final dataSplit =
+      temHoras ? separadoPorEspaco[0].split("/") : data.split("/");
   final horaSplit = temHoras ? separadoPorEspaco[1].split(":") : ["00", "00"];
   return DateTime(
     int.parse(dataSplit[2]),
@@ -53,5 +61,6 @@ DateTime fromStringToDateTimePtBr(String data, bool showHours) {
   );
 }
 
-String camelCaseToUnderscore(String value) =>
-    value.replaceAllMapped(RegExp('(?<=[a-z])[A-Z]'), (m) => '_${m.group(0)}').toLowerCase();
+String camelCaseToUnderscore(String value) => value
+    .replaceAllMapped(RegExp('(?<=[a-z])[A-Z]'), (m) => '_${m.group(0)}')
+    .toLowerCase();

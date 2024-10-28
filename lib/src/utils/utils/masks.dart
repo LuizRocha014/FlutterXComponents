@@ -3,7 +3,11 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 final carLicensePlateMask = MaskTextInputFormatter(
   mask: "###-&@&&",
-  filter: {"#": RegExp('[a-zA-Z]'), "&": RegExp('[0-9]'), "@": RegExp('[a-zA-Z|0-9]')},
+  filter: {
+    "#": RegExp('[a-zA-Z]'),
+    "&": RegExp('[0-9]'),
+    "@": RegExp('[a-zA-Z|0-9]')
+  },
 );
 
 final cpfMask = MaskTextInputFormatter(
@@ -38,7 +42,8 @@ class PhoneNumberMask extends MaskTextInputFormatter {
         );
 
   @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
     if (isCellphone == null) {
       if (newValue.text.length == 15 && getMask() != cellphoneMask) {
         updateMask(mask: cellphoneMask);
@@ -53,7 +58,8 @@ class PhoneNumberMask extends MaskTextInputFormatter {
 
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
     return TextEditingValue(
       text: newValue.text.toUpperCase(),
       selection: newValue.selection,
@@ -65,7 +71,8 @@ class UpperCaseTextFormatter extends TextInputFormatter {
       TextEditingValue.empty,
       TextEditingValue(
         text: text ?? '',
-        selection: TextSelection(baseOffset: text?.length ?? 0, extentOffset: text?.length ?? 0),
+        selection: TextSelection(
+            baseOffset: text?.length ?? 0, extentOffset: text?.length ?? 0),
       ),
     ).text;
   }
@@ -73,11 +80,34 @@ class UpperCaseTextFormatter extends TextInputFormatter {
 
 class CodeValidatorMask extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
-    if (oldValue.text.isNotEmpty && newValue.text.length > 1 && int.tryParse(newValue.text.substring(1)) != null) {
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    if (oldValue.text.isNotEmpty &&
+        newValue.text.length > 1 &&
+        int.tryParse(newValue.text.substring(1)) != null) {
       return TextEditingValue(text: newValue.text.substring(1));
     } else {
       return newValue;
     }
   }
+}
+
+class DateFormatter extends MaskTextInputFormatter {
+  DateFormatter()
+      : super(
+          mask: '@#/&#/####',
+          filter: {
+            "#": RegExp('[0-9]'),
+            "@": RegExp('[0-3]'),
+            "&": RegExp('[0-1]')
+          },
+        );
+}
+
+class CepInputFormatter extends MaskTextInputFormatter {
+  CepInputFormatter()
+      : super(
+          mask: '#####-###',
+          filter: {"#": RegExp(r'[0-9]')},
+        );
 }

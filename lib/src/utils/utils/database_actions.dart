@@ -14,7 +14,11 @@ Future<bool> validatePassword(BuildContext context) async {
       tituloConfirmar: "CONTINUAR",
       titulo: "Digite a senha",
       children: [
-        TextFieldWidget(controller: controllerText, internalLabel: "Digite a senha"),
+        TextFieldWidget(
+          controller: controllerText,
+          internalLabel: "Digite a senha",
+          labelInterno: '',
+        ),
       ],
       onTapBotaoConfirmar: () async {
         final dia = DateTime.now().day;
@@ -42,7 +46,9 @@ Future<void> openPopupDatabaseOptions(
 ) async {
   final controllerTextURL = TextEditingController(text: urlAPI);
   final senhaValida = await validatePassword(context);
-  if (!senhaValida) erroPopUp(context, "Senha inválida", null, onTapBotaoConfirmar: onTapBotaoConfirmar);
+  if (!senhaValida)
+    erroPopUp(context, "Senha inválida", null,
+        onTapBotaoConfirmar: onTapBotaoConfirmar);
   switch (opcao) {
     case OpcoesFuncao.exportarBanco:
       final result = await databaseContext.exportDatabase(context);
@@ -88,7 +94,9 @@ Future<void> openPopupDatabaseOptions(
             child: TextFieldWidget(
               controller: controllerTextURL,
               internalLabel: "",
-              validator: (value) => Uri.parse(value!).isAbsolute ? null : "URL inválida",
+              validator: (value) =>
+                  Uri.parse(value!).isAbsolute ? null : "URL inválida",
+              labelInterno: '',
             ),
           ),
         ],

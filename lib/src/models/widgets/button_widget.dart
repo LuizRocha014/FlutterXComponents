@@ -93,23 +93,32 @@ class _ButtonWidgetState extends State<ButtonWidget> {
           style: ElevatedButton.styleFrom(
             shape: widget.borderRadius != null || widget.borderColor != null
                 ? RoundedRectangleBorder(
-                    borderRadius:
-                        widget.borderRadius == null ? BorderRadius.zero : BorderRadius.circular(widget.borderRadius!),
-                    side: widget.borderColor == null ? BorderSide.none : BorderSide(color: widget.borderColor!),
+                    borderRadius: widget.borderRadius == null
+                        ? BorderRadius.zero
+                        : BorderRadius.circular(widget.borderRadius!),
+                    side: widget.borderColor == null
+                        ? BorderSide.none
+                        : BorderSide(color: widget.borderColor!),
                   )
                 : null,
             backgroundColor: widget.color,
             shadowColor: widget.useShadow ? null : transparent,
             elevation: widget.useShadow ? 5 : 0,
-            fixedSize: widget.isFixedSize ? Size(widget.width ?? 80.w, widget.height ?? 5.5.h) : null,
+            fixedSize: widget.isFixedSize
+                ? Size(widget.width ?? 80.w, widget.height ?? 5.5.h)
+                : null,
             minimumSize: Size.zero,
-            padding: widget.isFixedSize ? EdgeInsets.zero : EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.2.h),
+            padding: widget.isFixedSize
+                ? EdgeInsets.zero
+                : EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.2.h),
           ),
           child: Row(
-            mainAxisSize: widget.isFixedSize ? MainAxisSize.max : MainAxisSize.min,
+            mainAxisSize:
+                widget.isFixedSize ? MainAxisSize.max : MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if ((botaoExecutando || widget.isLoading == true) && widget.usesLoading) ...[
+              if ((botaoExecutando || widget.isLoading == true) &&
+                  widget.usesLoading) ...[
                 SizedBox(
                   height: 5.w,
                   width: 5.w,

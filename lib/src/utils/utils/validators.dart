@@ -5,13 +5,15 @@ import 'package:intl/intl.dart';
 
 extension StringNullableExtension on String? {
   bool get isNullOrEmpty => this == null || (this?.isEmpty ?? true);
-  String? get formataStringParaAtribuicaoNullable => isNullOrEmpty ? null : this;
+  String? get formataStringParaAtribuicaoNullable =>
+      isNullOrEmpty ? null : this;
 }
 
 extension StringExtension on String {
   bool get temAcentos => RegExp(r'[^\u0000-\u007F]').hasMatch(this);
   String get obterNumeros => replaceAll(RegExp('[^0-9]'), '').trim();
-  String get removeAllSpecialCharacters => replaceAll(RegExp('[^A-Za-z0-9]'), '');
+  String get removeAllSpecialCharacters =>
+      replaceAll(RegExp('[^A-Za-z0-9]'), '');
 }
 
 extension FileExtension on File {
