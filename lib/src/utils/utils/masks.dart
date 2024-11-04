@@ -104,6 +104,16 @@ class DateFormatter extends MaskTextInputFormatter {
         );
 }
 
+class valorRealFormatter extends MaskTextInputFormatter {
+  valorRealFormatter()
+      : super(
+          mask: 'R\$ ###.###.###,##',
+          filter: {
+            "#": RegExp(r'[0-9]'),
+          },
+        );
+}
+
 class CepInputFormatter extends MaskTextInputFormatter {
   CepInputFormatter()
       : super(

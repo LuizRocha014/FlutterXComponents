@@ -64,3 +64,21 @@ DateTime fromStringToDateTimePtBr(String data, bool showHours) {
 String camelCaseToUnderscore(String value) => value
     .replaceAllMapped(RegExp('(?<=[a-z])[A-Z]'), (m) => '_${m.group(0)}')
     .toLowerCase();
+
+String returnInitialsName(String nameValue) {
+  // Divide o nome completo em uma lista de palavras
+  List<String> palavras = nameValue.split(' ');
+
+  // Filtra para incluir apenas palavras não vazias
+  List<String> palavrasFiltradas =
+      palavras.where((palavra) => palavra.isNotEmpty).toList();
+
+  // Pega apenas os dois primeiros nomes, ou menos se houver menos palavras
+  List<String> primeirosDoisNomes = palavrasFiltradas.take(2).toList();
+
+  // Mapeia para pegar a primeira letra de cada palavra e transforma em maiúscula
+  String iniciais =
+      primeirosDoisNomes.map((palavra) => palavra[0].toUpperCase()).join();
+
+  return iniciais;
+}
